@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B335D06BAA35D122D17DB0F1 /* Pods_YogaInstructorsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA92B20F28DC8A18837F323B /* Pods_YogaInstructorsApp.framework */; };
+		F6804AA31F15A29F005EB255 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6804AA21F15A29F005EB255 /* LoginVC.swift */; };
 		F6863D3C1F159ABC00A1D682 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6863D3B1F159ABC00A1D682 /* AppDelegate.swift */; };
 		F6863D3E1F159ABC00A1D682 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6863D3D1F159ABC00A1D682 /* FirstViewController.swift */; };
 		F6863D401F159ABC00A1D682 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6863D3F1F159ABC00A1D682 /* SecondViewController.swift */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71AF70F355D13CCBEC992924 /* Pods-YogaInstructorsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaInstructorsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-YogaInstructorsApp/Pods-YogaInstructorsApp.release.xcconfig"; sourceTree = "<group>"; };
+		9815B7A15A7A30ECEA5DBF15 /* Pods-YogaInstructorsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaInstructorsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YogaInstructorsApp/Pods-YogaInstructorsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DA92B20F28DC8A18837F323B /* Pods_YogaInstructorsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaInstructorsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6804AA21F15A29F005EB255 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F6863D381F159ABC00A1D682 /* YogaInstructorsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaInstructorsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6863D3B1F159ABC00A1D682 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6863D3D1F159ABC00A1D682 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B335D06BAA35D122D17DB0F1 /* Pods_YogaInstructorsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BF9825D1006C7AC82407691 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9815B7A15A7A30ECEA5DBF15 /* Pods-YogaInstructorsApp.debug.xcconfig */,
+				71AF70F355D13CCBEC992924 /* Pods-YogaInstructorsApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54F3FB5237CD8832EFE164C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA92B20F28DC8A18837F323B /* Pods_YogaInstructorsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6863D2F1F159ABC00A1D682 = {
 			isa = PBXGroup;
 			children = (
 				F6863D3A1F159ABC00A1D682 /* YogaInstructorsApp */,
 				F6863D391F159ABC00A1D682 /* Products */,
+				0BF9825D1006C7AC82407691 /* Pods */,
+				54F3FB5237CD8832EFE164C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +89,7 @@
 				F6863D441F159ABC00A1D682 /* Assets.xcassets */,
 				F6863D461F159ABC00A1D682 /* LaunchScreen.storyboard */,
 				F6863D491F159ABC00A1D682 /* Info.plist */,
+				F6804AA21F15A29F005EB255 /* LoginVC.swift */,
 			);
 			path = YogaInstructorsApp;
 			sourceTree = "<group>";
@@ -74,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6863D4C1F159ABC00A1D682 /* Build configuration list for PBXNativeTarget "YogaInstructorsApp" */;
 			buildPhases = (
+				4B62F39B3CC284DAFF64BD1D /* [CP] Check Pods Manifest.lock */,
 				F6863D341F159ABC00A1D682 /* Sources */,
 				F6863D351F159ABC00A1D682 /* Frameworks */,
 				F6863D361F159ABC00A1D682 /* Resources */,
+				F6A6F38A9F2A852FC3B053EE /* [CP] Embed Pods Frameworks */,
+				B22C66604C8DC116D0A1BA5B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +165,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4B62F39B3CC284DAFF64BD1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B22C66604C8DC116D0A1BA5B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YogaInstructorsApp/Pods-YogaInstructorsApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6A6F38A9F2A852FC3B053EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YogaInstructorsApp/Pods-YogaInstructorsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F6863D341F159ABC00A1D682 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -142,6 +220,7 @@
 			files = (
 				F6863D401F159ABC00A1D682 /* SecondViewController.swift in Sources */,
 				F6863D3C1F159ABC00A1D682 /* AppDelegate.swift in Sources */,
+				F6804AA31F15A29F005EB255 /* LoginVC.swift in Sources */,
 				F6863D3E1F159ABC00A1D682 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +342,7 @@
 		};
 		F6863D4D1F159ABC00A1D682 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9815B7A15A7A30ECEA5DBF15 /* Pods-YogaInstructorsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 34KC4VR7Y2;
@@ -276,6 +356,7 @@
 		};
 		F6863D4E1F159ABC00A1D682 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71AF70F355D13CCBEC992924 /* Pods-YogaInstructorsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 34KC4VR7Y2;
@@ -306,6 +387,7 @@
 				F6863D4E1F159ABC00A1D682 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
