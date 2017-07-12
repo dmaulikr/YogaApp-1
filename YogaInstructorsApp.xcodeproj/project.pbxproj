@@ -22,6 +22,7 @@
 		9815B7A15A7A30ECEA5DBF15 /* Pods-YogaInstructorsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YogaInstructorsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YogaInstructorsApp/Pods-YogaInstructorsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA92B20F28DC8A18837F323B /* Pods_YogaInstructorsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaInstructorsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6804AA21F15A29F005EB255 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F6804AA41F15A990005EB255 /* YogaInstructorsApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YogaInstructorsApp.entitlements; sourceTree = "<group>"; };
 		F6863D381F159ABC00A1D682 /* YogaInstructorsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaInstructorsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6863D3B1F159ABC00A1D682 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6863D3D1F159ABC00A1D682 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -82,14 +83,15 @@
 		F6863D3A1F159ABC00A1D682 /* YogaInstructorsApp */ = {
 			isa = PBXGroup;
 			children = (
+				F6804AA41F15A990005EB255 /* YogaInstructorsApp.entitlements */,
 				F6863D3B1F159ABC00A1D682 /* AppDelegate.swift */,
+				F6804AA21F15A29F005EB255 /* LoginVC.swift */,
 				F6863D3D1F159ABC00A1D682 /* FirstViewController.swift */,
 				F6863D3F1F159ABC00A1D682 /* SecondViewController.swift */,
 				F6863D411F159ABC00A1D682 /* Main.storyboard */,
-				F6863D441F159ABC00A1D682 /* Assets.xcassets */,
 				F6863D461F159ABC00A1D682 /* LaunchScreen.storyboard */,
+				F6863D441F159ABC00A1D682 /* Assets.xcassets */,
 				F6863D491F159ABC00A1D682 /* Info.plist */,
-				F6804AA21F15A29F005EB255 /* LoginVC.swift */,
 			);
 			path = YogaInstructorsApp;
 			sourceTree = "<group>";
@@ -131,6 +133,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 34KC4VR7Y2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -345,6 +352,7 @@
 			baseConfigurationReference = 9815B7A15A7A30ECEA5DBF15 /* Pods-YogaInstructorsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = YogaInstructorsApp/YogaInstructorsApp.entitlements;
 				DEVELOPMENT_TEAM = 34KC4VR7Y2;
 				INFOPLIST_FILE = YogaInstructorsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -359,6 +367,7 @@
 			baseConfigurationReference = 71AF70F355D13CCBEC992924 /* Pods-YogaInstructorsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = YogaInstructorsApp/YogaInstructorsApp.entitlements;
 				DEVELOPMENT_TEAM = 34KC4VR7Y2;
 				INFOPLIST_FILE = YogaInstructorsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
