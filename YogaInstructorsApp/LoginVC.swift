@@ -11,14 +11,16 @@ import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
 
-class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
+//class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
+class LoginVC: UIViewController, GIDSignInUIDelegate {
+
 
     let appTitle = UILabel()
     
-    let fbLoginButton = FBSDKLoginButton()
+//    let fbLoginButton = FBSDKLoginButton()
     let customFbButton = UIButton(type: .system)
     
-    let googleButton = GIDSignInButton()
+//    let googleButton = GIDSignInButton()
     let customGoogleButton = UIButton(type: .system)
     
     var loggedInOnFacebook = false
@@ -27,15 +29,17 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fbLoginButton.delegate = self
-        fbLoginButton.readPermissions = ["email", "public_profile"]
+//        fbLoginButton.delegate = self
+//        fbLoginButton.readPermissions = ["email", "public_profile"]
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
-        setupMainUI()
+        
 //        setupFacebookButton()
-        setupFacebookButton2()
 //        setupGoogleButton()
+
+        setupMainUI()
+        setupFacebookButton2()
         setupGoogleButton2()
     }
     
@@ -49,19 +53,25 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
         
     }
     
-    func setupFacebookButton() {
-        self.view.addSubview(fbLoginButton)
-        fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint(item: fbLoginButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
-        NSLayoutConstraint(item: fbLoginButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 50.0).isActive = true
-        NSLayoutConstraint(item: fbLoginButton, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 0.8, constant: 0.0).isActive = true
-    }
+//    func setupFacebookButton() {
+//        self.view.addSubview(fbLoginButton)
+//        fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint(item: fbLoginButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
+//        NSLayoutConstraint(item: fbLoginButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 50.0).isActive = true
+//        NSLayoutConstraint(item: fbLoginButton, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 0.8, constant: 0.0).isActive = true
+//    }
     
     
     func setupFacebookButton2() {
         customFbButton.backgroundColor = .blue
-        customFbButton.setTitle("Custom FB Login", for: .normal)
+        
+        if loggedInOnFacebook == true {
+            customFbButton.setTitle("Already logged in!", for: .normal)
+        } else {
+            customFbButton.setTitle("Continue with Facebook", for: .normal)
+        }
+        
         customFbButton.setTitleColor(.white, for: .normal)
         self.view.addSubview(customFbButton)
         customFbButton.translatesAutoresizingMaskIntoConstraints = false
@@ -75,25 +85,31 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
         
     }
     
-    func setupGoogleButton() {
-        self.view.addSubview(googleButton)
-        googleButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint(item: googleButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
-        NSLayoutConstraint(item: googleButton, attribute: .top, relatedBy: .equal, toItem: customFbButton, attribute: .bottom, multiplier: 1.0, constant: 50.0).isActive = true
-        NSLayoutConstraint(item: googleButton, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 0.8, constant: 0.0).isActive = true
-        NSLayoutConstraint(item: googleButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50.0).isActive = true
-    }
+//    func setupGoogleButton() {
+//        self.view.addSubview(googleButton)
+//        googleButton.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        NSLayoutConstraint(item: googleButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
+//        NSLayoutConstraint(item: googleButton, attribute: .top, relatedBy: .equal, toItem: customFbButton, attribute: .bottom, multiplier: 1.0, constant: 50.0).isActive = true
+//        NSLayoutConstraint(item: googleButton, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 0.8, constant: 0.0).isActive = true
+//        NSLayoutConstraint(item: googleButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50.0).isActive = true
+//    }
     
     func setupGoogleButton2() {
         customGoogleButton.backgroundColor = .orange
-        customGoogleButton.setTitle("Custom Google Login", for: .normal)
+        
+        if loggedInOnGoogle == true {
+            customGoogleButton.setTitle("Already logged in!", for: .normal)
+        } else {
+            customGoogleButton.setTitle("Continue with Google", for: .normal)
+        }
+        
         customGoogleButton.setTitleColor(.white, for: .normal)
         self.view.addSubview(customGoogleButton)
         customGoogleButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint(item: customGoogleButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
-        NSLayoutConstraint(item: customGoogleButton, attribute: .top, relatedBy: .equal, toItem: customFbButton, attribute: .bottom, multiplier: 1.0, constant: 50.0).isActive = true
+        NSLayoutConstraint(item: customGoogleButton, attribute: .top, relatedBy: .equal, toItem: customFbButton, attribute: .bottom, multiplier: 1.0, constant: 25.0).isActive = true
         NSLayoutConstraint(item: customGoogleButton, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 0.8, constant: 0.0).isActive = true
         NSLayoutConstraint(item: customGoogleButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50.0).isActive = true
         
@@ -101,21 +117,21 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     }
  
     
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("User has logged out of Facebook!")
-    }
- 
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        
-        if error != nil {
-            print(error)
-            return
-        }
-        print("Successfully logged in with Facebook!")
-        
-        showEmailAddress()
-    }
+//    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+//        print("User has logged out of Facebook!")
+//    }
+// 
+//    
+//    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+//        
+//        if error != nil {
+//            print(error)
+//            return
+//        }
+//        print("Successfully logged in with Facebook!")
+//        
+//        showEmailAddress()
+//    }
 
     
     func handleCustomFBLogin() {
