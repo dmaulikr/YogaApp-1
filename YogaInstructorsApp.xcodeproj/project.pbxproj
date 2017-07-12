@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B335D06BAA35D122D17DB0F1 /* Pods_YogaInstructorsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA92B20F28DC8A18837F323B /* Pods_YogaInstructorsApp.framework */; };
 		F6804AA31F15A29F005EB255 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6804AA21F15A29F005EB255 /* LoginVC.swift */; };
+		F6804AA61F15B74A005EB255 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6804AA51F15B74A005EB255 /* GoogleService-Info.plist */; };
 		F6863D3C1F159ABC00A1D682 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6863D3B1F159ABC00A1D682 /* AppDelegate.swift */; };
 		F6863D3E1F159ABC00A1D682 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6863D3D1F159ABC00A1D682 /* FirstViewController.swift */; };
 		F6863D401F159ABC00A1D682 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6863D3F1F159ABC00A1D682 /* SecondViewController.swift */; };
@@ -23,6 +24,7 @@
 		DA92B20F28DC8A18837F323B /* Pods_YogaInstructorsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YogaInstructorsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6804AA21F15A29F005EB255 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F6804AA41F15A990005EB255 /* YogaInstructorsApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YogaInstructorsApp.entitlements; sourceTree = "<group>"; };
+		F6804AA51F15B74A005EB255 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6863D381F159ABC00A1D682 /* YogaInstructorsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaInstructorsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6863D3B1F159ABC00A1D682 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6863D3D1F159ABC00A1D682 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				F6863D411F159ABC00A1D682 /* Main.storyboard */,
 				F6863D461F159ABC00A1D682 /* LaunchScreen.storyboard */,
 				F6863D441F159ABC00A1D682 /* Assets.xcassets */,
+				F6804AA51F15B74A005EB255 /* GoogleService-Info.plist */,
 				F6863D491F159ABC00A1D682 /* Info.plist */,
 			);
 			path = YogaInstructorsApp;
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6863D481F159ABC00A1D682 /* LaunchScreen.storyboard in Resources */,
+				F6804AA61F15B74A005EB255 /* GoogleService-Info.plist in Resources */,
 				F6863D451F159ABC00A1D682 /* Assets.xcassets in Resources */,
 				F6863D431F159ABC00A1D682 /* Main.storyboard in Resources */,
 			);
