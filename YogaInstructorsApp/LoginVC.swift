@@ -11,7 +11,7 @@ import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
 
-class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
+class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
 
     let fbLoginButton = FBSDKLoginButton()
     let customFbButton = UIButton(type: .system)
@@ -23,6 +23,8 @@ class LoginVC: UIViewController, FBSDKLoginButtonDelegate {
 
         fbLoginButton.delegate = self
         fbLoginButton.readPermissions = ["email", "public_profile"]
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
         
     
         setupFacebookButton()
