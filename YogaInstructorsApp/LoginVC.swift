@@ -184,7 +184,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
             
         })
         
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start {
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture.type(large)"]).start {
             (connection, result, err) in
             
             if err != nil {
@@ -192,8 +192,26 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
                 return
             }
             
-            guard let results = result else { return }
-            print("RESULTS: \(results)")
+//            guard let results = result else { return }
+
+//            print("RESULTS: \(results)")
+            
+            guard case let results as Dictionary<String,AnyObject> = result else { return }
+            guard let name = results["name"] else { return }
+            guard let id = results["id"] else { return }
+            guard let email = results["email"] else { return }
+            guard let imageURL = ((results["picture"] as? [String: Any])?["data"] as! [String: Any])["url"] else { return }
+            
+            
+            print("NAME: \(name)")
+            print("ID: \(id)")
+            print("EMAIL: \(email)")
+            print("PICTURE: \(imageURL)")
+            
+            let currentUser = User(name: name as! String, email: email as! String, id: id as! String, imageURL: imageURL as! String)
+            print(currentUser)
+            
+          
         }
     }
 }

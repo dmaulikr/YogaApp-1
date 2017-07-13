@@ -9,7 +9,8 @@
 import Foundation
 
 struct User {
-    var name: String?
-    var email: String?
-    var id: String?
+    var name = String()
+    var email = String()
+    var id = String()
+    var imageURL = String()
 }
