@@ -43,6 +43,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         setupGoogleButton2()
     }
     
+    
     func setupMainUI() {
         appTitle.text = "YogaStars"
         self.view.addSubview(appTitle)
@@ -163,6 +164,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     
     func handleCustomGoogleLogin() {
         GIDSignIn.sharedInstance().signIn()
+        customGoogleButton.setTitle("Already logged in!", for: .normal)
     }
     
     func showEmailAddress() {
