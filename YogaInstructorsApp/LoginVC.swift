@@ -11,6 +11,10 @@ import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
 
+protocol UserDelegate {
+    func didReceiveLoginData(data: User)
+}
+
 //class LoginVC: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
 class LoginVC: UIViewController, GIDSignInUIDelegate {
 
@@ -25,6 +29,10 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     
     var loggedInOnFacebook = false
     var loggedInOnGoogle = false
+    
+    var currentUser = User()
+    
+    weak var delegate: UserDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +48,13 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
 
         setupMainUI()
         setupFacebookButton2()
-        setupGoogleButton2()
+//        setupGoogleButton2()
+        
+        if loggedInOnFacebook {
+            print("#######")
+            print(currentUser)
+            print("#######")
+        }
     }
     
     
@@ -65,15 +79,15 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     
     
     func setupFacebookButton2() {
-        customFbButton.backgroundColor = .blue
-        
         if loggedInOnFacebook == true {
             customFbButton.setTitle("Already logged in!", for: .normal)
         } else {
             customFbButton.setTitle("Continue with Facebook", for: .normal)
         }
         
+        customFbButton.backgroundColor = Colors.facebookBlue
         customFbButton.setTitleColor(.white, for: .normal)
+        customFbButton.titleLabel?.font = UIFont(name: "Avenir next", size: 18.0)
         self.view.addSubview(customFbButton)
         customFbButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -81,6 +95,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         NSLayoutConstraint(item: customFbButton, attribute: .top, relatedBy: .equal, toItem: appTitle, attribute: .bottom, multiplier: 1.0, constant: 50.0).isActive = true
         NSLayoutConstraint(item: customFbButton, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 0.8, constant: 0.0).isActive = true
         NSLayoutConstraint(item: customFbButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50.0).isActive = true
+        
+        customFbButton.layer.cornerRadius = 25
         
         customFbButton.addTarget(self, action: #selector(handleCustomFBLogin), for: .touchUpInside)
         
@@ -192,15 +208,11 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
                 return
             }
             
-//            guard let results = result else { return }
-
-//            print("RESULTS: \(results)")
-            
             guard case let results as Dictionary<String,AnyObject> = result else { return }
-            guard let name = results["name"] else { return }
-            guard let id = results["id"] else { return }
-            guard let email = results["email"] else { return }
-            guard let imageURL = ((results["picture"] as? [String: Any])?["data"] as! [String: Any])["url"] else { return }
+            guard let name = results["name"] as? String else { return }
+            guard let id = results["id"] as? String else { return }
+            guard let email = results["email"] as? String else { return }
+            guard let imageURL = ((results["picture"] as? [String: Any])?["data"] as! [String: Any])["url"] as? String else { return }
             
             
             print("NAME: \(name)")
@@ -208,10 +220,26 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
             print("EMAIL: \(email)")
             print("PICTURE: \(imageURL)")
             
-            let currentUser = User(name: name as! String, email: email as! String, id: id as! String, imageURL: imageURL as! String)
-            print(currentUser)
+            self.currentUser.name = name
+            self.currentUser.email = email
+            self.currentUser.id = id
+            self.currentUser.imageURL = imageURL
             
-          
+            if self.delegate != nil {
+                let userInfo = self.currentUser
+                self.delegate?.getUserDataInfo(info: userInfo)
+            }
+            print(self.currentUser)
         }
     }
+    
+    @IBAction func continueTapped(_ sender: Any) {
+        print("Continue tapped")
+        if delegate != nil {
+            let data = currentUser
+            delegate?.getUserDataInfo(info: data)
+            performSegue(withIdentifier: "ToMain", sender: nil)
+        }
+    }
+    
 }
