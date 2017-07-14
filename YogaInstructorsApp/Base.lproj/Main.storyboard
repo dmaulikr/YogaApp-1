@@ -44,6 +44,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="mainLabel" destination="KQZ-1w-vlD" id="crc-lA-hLJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--LoginVC-->
+        <!--To Main-->
         <scene sceneID="gKt-MM-RYh">
             <objects>
-                <viewController id="r4V-md-ruq" customClass="LoginVC" customModule="YogaInstructorsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r4V-md-ruq" customClass="ToMain" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qRA-9G-Wcq"/>
                         <viewControllerLayoutGuide type="bottom" id="WXg-Ig-alb"/>
@@ -100,8 +103,24 @@
                     <view key="view" contentMode="scaleToFill" id="QAd-Uj-Im8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xkv-bh-eEs">
+                                <rect key="frame" x="164" y="587" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="continueTapped:" destination="r4V-md-ruq" eventType="touchUpInside" id="Tmq-fN-TS1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WXg-Ig-alb" firstAttribute="top" secondItem="Xkv-bh-eEs" secondAttribute="bottom" constant="50" id="3T3-8i-jjX"/>
+                            <constraint firstItem="Xkv-bh-eEs" firstAttribute="centerX" secondItem="QAd-Uj-Im8" secondAttribute="centerX" id="hVa-mb-EXM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="show" id="xfG-Ur-tqF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CV-Wz-YAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,4 +150,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xfG-Ur-tqF"/>
+    </inferredMetricsTieBreakers>
 </document>

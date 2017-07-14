@@ -17,6 +17,7 @@
 		F6863D431F159ABC00A1D682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6863D411F159ABC00A1D682 /* Main.storyboard */; };
 		F6863D451F159ABC00A1D682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6863D441F159ABC00A1D682 /* Assets.xcassets */; };
 		F6863D481F159ABC00A1D682 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6863D461F159ABC00A1D682 /* LaunchScreen.storyboard */; };
+		F6D9B4471F18107D005CF04C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D9B4461F18107D005CF04C /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		F6863D441F159ABC00A1D682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6863D471F159ABC00A1D682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6863D491F159ABC00A1D682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6D9B4461F18107D005CF04C /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				F67941181F1738BF00975F6E /* User.swift */,
+				F6D9B4461F18107D005CF04C /* Colors.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6863D401F159ABC00A1D682 /* SecondViewController.swift in Sources */,
+				F6D9B4471F18107D005CF04C /* Colors.swift in Sources */,
 				F6863D3C1F159ABC00A1D682 /* AppDelegate.swift in Sources */,
 				F6804AA31F15A29F005EB255 /* LoginVC.swift in Sources */,
 				F67941191F1738BF00975F6E /* User.swift in Sources */,
